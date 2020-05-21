@@ -242,7 +242,7 @@ class Output extends AbstractHelper
     {
         $matches = false;
         foreach ($this->directivePatterns as $pattern) {
-            if (preg_match($pattern, $attributeHtml)) {
+            if (preg_match($pattern, (string) $attributeHtml)) {
                 $matches = true;
                 break;
             }
