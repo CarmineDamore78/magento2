@@ -1,0 +1,25 @@
+From fcf5dd40ac81f33b8fb86b5876f6590ffb31223f Mon Sep 17 00:00:00 2001
+From: Carmine damore <carmine@pinpointdesigns.co.uk>
+Date: Thu, 21 May 2020 12:09:51 +0100
+Subject: [PATCH] bugfix-28254 Fixed issue for compare page
+
+---
+ app/code/Magento/Catalog/Helper/Output.php | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/app/code/Magento/Catalog/Helper/Output.php b/app/code/Magento/Catalog/Helper/Output.php
+index 93b67965e72..a1f4674f29c 100644
+--- a/app/code/Magento/Catalog/Helper/Output.php
++++ b/app/code/Magento/Catalog/Helper/Output.php
+@@ -242,7 +242,7 @@ class Output extends AbstractHelper
+     {
+         $matches = false;
+         foreach ($this->directivePatterns as $pattern) {
+-            if (preg_match($pattern, $attributeHtml)) {
++            if (preg_match($pattern, (string) $attributeHtml)) {
+                 $matches = true;
+                 break;
+             }
+-- 
+2.23.0
+
